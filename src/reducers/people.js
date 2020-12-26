@@ -5,7 +5,7 @@ export const GET_PEOPLE = "GET_PEOPLE"
 
 export const getPeople = () =>async (dispatch,getState) => {
     return axios("https://relation-finder-backend.herokuapp.com/api/people",{
-        method:"GET",,
+        method:"GET",
         headers: { 
             
             'Access-Control-Allow-Origin' : '*',
