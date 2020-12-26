@@ -1,7 +1,7 @@
-import { useState } from "react"
+import { useState,useEffect } from "react"
 import {Table,Input,Button,Select,Card } from "antd"
 import { connect } from "react-redux";
-import people, {getPeople,postPeople} from "../reducers/people"
+import  {getPeople,postPeople} from "../reducers/people"
 import {getTags,postTags} from "../reducers/tags"
 import {addData} from "../reducers/relation"
 const { Option } = Select;
@@ -16,6 +16,10 @@ function AddRelation(props){
       setPerson([])
       setSecondaryPerson([])
     }
+    useEffect(()=>{
+      getTags(),
+      getPeople()
+    },[])
     return(<div className="site-card-border-less-wrapper">
     <Card title="Add Relationship" bordered={true} style={{ width: 500, margin: "auto"}}>
     <div style={{display:"flex",flexDirection:"column"}}>

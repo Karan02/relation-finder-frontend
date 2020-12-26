@@ -1,7 +1,7 @@
-import { useState } from "react"
+import { useState,useEffect } from "react"
 import {Input,Button,Select,Card } from "antd"
 import { connect } from "react-redux";
-import people, {getPeople,postPeople} from "../reducers/people"
+import {getPeople,postPeople} from "../reducers/people"
 import {getTags,postTags} from "../reducers/tags"
 
 
@@ -19,6 +19,10 @@ function AddInfo(props){
        props.postTags(tag)
        setTag("")
     }
+    useEffect(()=>{
+      getTags(),
+      getPeople()
+    },[])
     return(<div className="site-card-border-less-wrapper">
    <div className="site-card-border-less-wrapper">
     <Card title="Add Information" bordered={true} style={{ width: 500, margin: "auto"}}>

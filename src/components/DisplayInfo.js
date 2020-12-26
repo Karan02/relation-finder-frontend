@@ -1,10 +1,14 @@
 
 import {Table } from "antd"
 import { connect } from "react-redux";
-
-
+import {useEffect} from "react"
+import  {getPeople} from "../reducers/people"
+import {getTags} from "../reducers/tags"
 function DisplayInfo(props) {
-    
+  useEffect(()=>{
+    getTags(),
+    getPeople()
+  },[])
       const columns = [
         {
           title:"Name",
@@ -38,5 +42,9 @@ const mapState = state => ({
     relation:state.relation.relations,
     state
 })
+const mapDispatch = {
+  getTags,
+  getPeople
+}
 
-export default connect(mapState,null)(DisplayInfo)
+export default connect(mapState,mapDispatch)(DisplayInfo)
