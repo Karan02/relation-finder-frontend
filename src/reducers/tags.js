@@ -5,7 +5,12 @@ export const GET_TAGS = "GET_TAGS"
 
 export const getTags = () => (dispatch,getState) => {
     return axios("https://relation-finder-backend.herokuapp.com/api/tags",{
-        method:"GET"
+        method:"GET",
+        headers: { 
+            
+            'Access-Control-Allow-Origin' : '*',
+            'Access-Control-Allow-Methods' : 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+          },
     }).then(
         json =>{
             // console.log("json",json)
@@ -23,7 +28,12 @@ export const postTags = (tag) => (dispatch,getState) => {
         method:"POST",
         data:{
             tag:tag
-        }
+        },
+        headers: { 
+            
+            'Access-Control-Allow-Origin' : '*',
+            'Access-Control-Allow-Methods' : 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+          },
     }).then(
         json =>{
             if(json.status){

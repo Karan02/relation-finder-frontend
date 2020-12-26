@@ -8,7 +8,12 @@ export const addData = (person,tag,secondaryPerson) =>async (dispatch,getState) 
         method:"POST",
         data:{
             person,tag,secondaryPerson
-        }
+        },
+        headers: { 
+            
+            'Access-Control-Allow-Origin' : '*',
+            'Access-Control-Allow-Methods' : 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+          },
     }).then(
         json =>{
             message.success("Relationship added")
@@ -19,7 +24,12 @@ export const addData = (person,tag,secondaryPerson) =>async (dispatch,getState) 
 
 export const getData = () =>async (dispatch,getState) => {
     return axios("https://relation-finder-backend.herokuapp.com/api/relations",{
-        method:"GET"
+        method:"GET",
+        headers: { 
+            
+            'Access-Control-Allow-Origin' : '*',
+            'Access-Control-Allow-Methods' : 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+          },
     }).then(
         json =>{
             if(json.data.status){
@@ -38,7 +48,12 @@ export const getRelationship = (from,to) => async(dispatch,getState) => {
         data:{
             person:from,
             secondaryPerson:to
-        }
+        },
+        headers: { 
+            
+            'Access-Control-Allow-Origin' : '*',
+            'Access-Control-Allow-Methods' : 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+          },
     }).then(json =>{
          
         const relationship = json.data.path

@@ -5,7 +5,12 @@ export const GET_PEOPLE = "GET_PEOPLE"
 
 export const getPeople = () =>async (dispatch,getState) => {
     return axios("https://relation-finder-backend.herokuapp.com/api/people",{
-        method:"GET",
+        method:"GET",,
+        headers: { 
+            
+            'Access-Control-Allow-Origin' : '*',
+            'Access-Control-Allow-Methods' : 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+          },
     }).then(
         json =>{
             if(json.data.status){
@@ -20,7 +25,12 @@ export const postPeople = (people) =>async (dispatch,getState) => {
 
     // console.log("posting peope")
     return axios("https://relation-finder-backend.herokuapp.com/api/people",{
-        method:"POST",
+        method:"POST",,
+        headers: { 
+            
+            'Access-Control-Allow-Origin' : '*',
+            'Access-Control-Allow-Methods' : 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+          },
         data:{
             people:people
         }
