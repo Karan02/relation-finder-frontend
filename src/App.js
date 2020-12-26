@@ -12,6 +12,7 @@ import AddRelation from './components/AddRelation';
 import AddInfo from "./components/AddInfo"
 import DisplayInfo from './components/DisplayInfo';
 import FindRelation from './components/FindRelation';
+import Welcome from "./components/Welcome";
 
 const { Option } = Select;
 const { Header, Content, Footer, Sider } = Layout;
@@ -26,9 +27,9 @@ function App(props) {
   },[])
 
 
-  const handleTagChange = () => {
+  // const handleTagChange = () => {
 
-  }
+  // }
   // console.log("people",props.people,props.tags)
   
   return (
@@ -71,6 +72,7 @@ function App(props) {
 </Sider>
 <Layout>
     <Content style={{ margin: '24px 16px', padding: 24, background: '#fff', minHeight: 280 }}>
+        <Route exact path="/" component={Welcome} />
         <Route exact path="/AddInfo" component={AddInfo} />
         <Route path="/AddRelation" component={AddRelation} />
         <Route path="/DisplayInfo" component={DisplayInfo} />
