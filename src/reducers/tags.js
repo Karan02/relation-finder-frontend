@@ -4,7 +4,7 @@ export const GET_TAGS = "GET_TAGS"
 
 
 export const getTags = () => (dispatch,getState) => {
-    return axios("http://localhost:8080/api/tags",{
+    return axios("https://relation-finder-backend.herokuapp.com/api/tags",{
         method:"GET"
     }).then(
         json =>{
@@ -19,7 +19,7 @@ export const getTags = () => (dispatch,getState) => {
 }
 
 export const postTags = (tag) => (dispatch,getState) => {
-    return axios("http://localhost:8080/api/tags",{
+    return axios("https://relation-finder-backend.herokuapp.com/api/tags",{
         method:"POST",
         data:{
             tag:tag

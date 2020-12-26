@@ -4,7 +4,7 @@ export const GET_PEOPLE = "GET_PEOPLE"
 
 
 export const getPeople = () =>async (dispatch,getState) => {
-    return axios("http://localhost:8080/api/people",{
+    return axios("https://relation-finder-backend.herokuapp.com/api/people",{
         method:"GET",
     }).then(
         json =>{
@@ -19,7 +19,7 @@ export const getPeople = () =>async (dispatch,getState) => {
 export const postPeople = (people) =>async (dispatch,getState) => {
 
     // console.log("posting peope")
-    return axios("http://localhost:8080/api/people",{
+    return axios("https://relation-finder-backend.herokuapp.com/api/people",{
         method:"POST",
         data:{
             people:people

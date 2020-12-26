@@ -4,7 +4,7 @@ export const ADD_RELATION = "ADD_RELATION"
 export const GET_RELATIONSHIP = "GET_RELATIONSHIP"
 
 export const addData = (person,tag,secondaryPerson) =>async (dispatch,getState) => {
-    return axios("http://localhost:8080/api/relations",{
+    return axios("https://relation-finder-backend.herokuapp.com/api/relations",{
         method:"POST",
         data:{
             person,tag,secondaryPerson
@@ -18,7 +18,7 @@ export const addData = (person,tag,secondaryPerson) =>async (dispatch,getState) 
 }
 
 export const getData = () =>async (dispatch,getState) => {
-    return axios("http://localhost:8080/api/relations",{
+    return axios("https://relation-finder-backend.herokuapp.com/api/relations",{
         method:"GET"
     }).then(
         json =>{
@@ -33,7 +33,7 @@ export const getData = () =>async (dispatch,getState) => {
 
 export const getRelationship = (from,to) => async(dispatch,getState) => {
     console.log("here 23",from,to,"here it is")
-    return axios("http://localhost:8080/api/relationship",{
+    return axios("https://relation-finder-backend.herokuapp.com/api/relationship",{
         method:"POST",
         data:{
             person:from,
