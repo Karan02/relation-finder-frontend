@@ -25,7 +25,7 @@ export const postPeople = (people) =>async (dispatch,getState) => {
 
     // console.log("posting peope")
     return axios("https://relation-finder-backend.herokuapp.com/api/people",{
-        method:"POST",,
+        method:"POST",
         headers: { 
             
             'Access-Control-Allow-Origin' : '*',
