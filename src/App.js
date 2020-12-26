@@ -47,7 +47,7 @@ function App(props) {
     // onCollapse={onCollapse}
     >
     <div className="logo" />
-    <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
+    <Menu theme="dark"  mode="inline">
         <Menu.Item key="1">
             
             <span>Add Info</span>
