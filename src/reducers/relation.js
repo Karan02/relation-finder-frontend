@@ -2,7 +2,7 @@ import { message } from "antd"
 import  axios from "axios"
 export const ADD_RELATION = "ADD_RELATION"
 export const GET_RELATIONSHIP = "GET_RELATIONSHIP"
-
+export const CLEAR_RELATION = "CLEAR_RELATION"
 export const addData = (person,tag,secondaryPerson) =>async (dispatch,getState) => {
     return axios("https://relation-finder-backend.herokuapp.com/api/relations",{
         method:"POST",
@@ -41,6 +41,10 @@ export const getData = () =>async (dispatch,getState) => {
     )
 }
 
+export const clearRelationship = () => (dispatch,getState) =>{
+    dispatch({type:CLEAR_RELATION})
+}
+
 export const getRelationship = (from,to) => async(dispatch,getState) => {
     console.log("here 23",from,to,"here it is")
     return axios("https://relation-finder-backend.herokuapp.com/api/relationship",{
@@ -56,7 +60,7 @@ export const getRelationship = (from,to) => async(dispatch,getState) => {
           },
     }).then(json =>{
          
-        const relationship = json.data.path
+        const relationship = json.data.path || ["No Relation"]
         dispatch({type:GET_RELATIONSHIP,relationship})
     })
 }
@@ -76,7 +80,12 @@ function relation(state=initialState,action){
         return Object.assign({},state,
             {
                 relationship:action.relationship
-            })    
+            })
+    case CLEAR_RELATION:
+        return Object.assign({},state,
+            {
+                relationship:[]
+            })             
     default:
         return state;
     }

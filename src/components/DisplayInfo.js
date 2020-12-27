@@ -6,8 +6,8 @@ import  {getPeople} from "../reducers/people"
 import {getTags} from "../reducers/tags"
 function DisplayInfo(props) {
   useEffect(()=>{
-    getTags(),
-    getPeople()
+    props.getTags()
+    props.getPeople()
   },[])
       const columns = [
         {

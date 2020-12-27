@@ -1,10 +1,11 @@
-import { useState } from "react"
+import { useState,useEffect } from "react"
 import { Card,Select,Button } from "antd"
 import { connect } from "react-redux"
-import { getRelationship } from "../reducers/relation"
-const {Option} = Select
+import { getRelationship,clearRelationship } from "../reducers/relation"
 import people, {getPeople} from "../reducers/people"
 import {getTags} from "../reducers/tags"
+const {Option} = Select
+
 function FindRelation(props) {
 
     const [person1,setPerson1] = useState([])
@@ -18,8 +19,9 @@ function FindRelation(props) {
     }
 
     useEffect(()=>{
-      getTags(),
-      getPeople()
+      props.getTags()
+      props.getPeople()
+      props.clearRelationship()
     },[])
 
     return(
@@ -53,7 +55,8 @@ const mapState = state => ({
 const mapDispatch = {
   getRelationship,
   getPeople,
-  getTags
+  getTags,
+  clearRelationship
 }  
 
 export default connect(mapState,mapDispatch)(FindRelation)

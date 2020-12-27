@@ -17,8 +17,8 @@ function AddRelation(props){
       setSecondaryPerson([])
     }
     useEffect(()=>{
-      getTags(),
-      getPeople()
+      props.getTags()
+      props.getPeople()
     },[])
     return(<div className="site-card-border-less-wrapper">
     <Card title="Add Relationship" bordered={true} style={{ width: 500, margin: "auto"}}>

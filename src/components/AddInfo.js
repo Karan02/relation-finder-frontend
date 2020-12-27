@@ -20,8 +20,8 @@ function AddInfo(props){
        setTag("")
     }
     useEffect(()=>{
-      getTags(),
-      getPeople()
+      props.getTags()
+      props.getPeople()
     },[])
     return(<div className="site-card-border-less-wrapper">
    <div className="site-card-border-less-wrapper">
